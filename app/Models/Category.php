@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 final class Category extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'name',
+        'description'
+    ];
 }
