@@ -14,6 +14,7 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -21,11 +22,12 @@ class CreateProductsTable extends Migration
             $table->integer('quantity')->unsigned();
             $table->string('status')->default(Product::UNAVAILABLE_PRODUCT);
             $table->string('image');
-            $table->integer('seller_id')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
 
-            $table->foreign('seller_id')->references('id')->on('users');
+            $table->foreignId('seller_id')->references('id')->on('users');
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

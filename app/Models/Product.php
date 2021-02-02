@@ -6,9 +6,13 @@ use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Seller;
 use App\Models\Transaction;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
+    use HasFactory, SoftDeletes;
+
     const AVAILABLE_PRODUCT = 'available';
     const UNAVAILABLE_PRODUCT = 'unavailable';
 
