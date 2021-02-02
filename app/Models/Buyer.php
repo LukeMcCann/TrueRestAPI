@@ -6,7 +6,6 @@ use App\Models\Transaction;
 
 final class Buyer extends User
 {
-
     /**
      * Define the transactions relationship
      * 
