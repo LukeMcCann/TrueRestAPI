@@ -5,11 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 
-class UserController extends Controller
+final class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
