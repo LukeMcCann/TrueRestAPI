@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\ApiRequest;
+use App\Models\User;
 
 class UpdateUserRequest extends ApiRequest
 {
@@ -24,9 +25,9 @@ class UpdateUserRequest extends ApiRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'email' => 'email|unique:users,email,' . $this->id,
+            'password' => 'min:6|confirmed',
+            'admin' => 'in:' . User::ADMIN_USER . ',' . User::REGULAR_USER,
         ];
     }
 }

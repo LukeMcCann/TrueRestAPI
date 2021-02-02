@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -68,9 +69,47 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, int $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        if ($request->has('name')) {
+            $user->name = $request->name;
+        }
+
+        if ($request->has('email') && $user->email != $request->email) {
+            $user->verified = User::UNVERIFIED_USER;
+            $user->verification_token = User::generateVerificationCode();
+            $user->email = $request->email;
+        }
+
+        if ($request->has('password')) {
+            $user->password = \bcrypt($request->password);
+        }
+
+        if ($request->has('admin')) {
+            if (false === $user->isVerified()) {
+                return new JsonResponse([
+                    'error' => 'Only verified users can modify the admin field',
+                    'code' => JsonResponse::HTTP_CONFLICT
+                ], JsonResponse::HTTP_CONFLICT);
+            }
+
+            $user->admin = $request->admin;
+        }
+
+        if (false === $user->isDirty()) {
+            return new JsonResponse([
+                'error' => 'A new value must be specified to update',
+                'code' => JsonResponse::HTTP_UNPROCESSABLE_ENTITY
+            ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+        }
+        
+        $user->save();
+
+        return new JsonResponse([
+            'data' => $user
+        ], JsonResponse::HTTP_OK);
     }
 
     /**
