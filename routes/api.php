@@ -1,10 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Buyer\BuyerController;
 use App\Http\Controllers\Seller\SellerController;
-use App\Models\Category\CategoryController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Transaction\TransactionController;
 use App\Http\Controllers\Product\ProductController;

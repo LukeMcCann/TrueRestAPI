@@ -31,7 +31,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -40,9 +39,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return new JsonResponse([
+            'data' => $user
+        ], JsonResponse::HTTP_OK);
     }
 
     /**
