@@ -6,6 +6,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 
+/**
+ * Indirectly implemented through the 
+ * buyer/seller models inheritance.
+ */
 class User extends Authenticatable
 {
     use Notifiable;

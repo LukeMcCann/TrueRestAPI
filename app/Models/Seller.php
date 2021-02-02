@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 final class Seller extends User
 {
-    use HasFactory;
+    /**
+     * Define the product relationship
+     * 
+     * @var realtionship
+     */
+    public function products() 
+    {
+        return $this->hasMany(Product::class);
+    }
 }

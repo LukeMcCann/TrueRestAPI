@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Seller;
+use App\Models\Transaction;
 
 class Product extends Model
 {
@@ -24,8 +26,48 @@ class Product extends Model
         'seller_id',
     ];
 
+    /**
+     * Check a products availability
+     * 
+     * @var boolean
+     */
     public function isAvailable() 
     {
         return $this->status == Product::AVAILABLE_PRODUCT;
+    }
+
+    /**
+     * Defube the category relationship
+     * 
+     * many -> many
+     * 
+     * @var relationship
+     */
+    public function categories() 
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+    /**
+     * Define the transaction relationship
+     * 
+     * @var realtionship
+     */
+    public function transactions() 
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    /**
+     * Define the seller relationship
+     * 
+     * The model which has the foreign key is the model
+     * that belongs to.
+     * 
+     * @var realtionship
+     */
+    public function seller() 
+    {
+        return $this->belongsTo(Seller::class);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 
 final class Category extends Model
@@ -16,4 +16,16 @@ final class Category extends Model
         'name',
         'description'
     ];
+
+    /**
+     * Define the products relationship 
+     * 
+     * many -> many
+     * 
+     * @var relationship
+     */
+    public function products() 
+    {
+        return $this->belongsToMany(Product::class);
+    }
 }
