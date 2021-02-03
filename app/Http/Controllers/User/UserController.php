@@ -48,10 +48,8 @@ final class UserController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(int $id)
+    public function show(User $user)
     {
-        $user = User::findOrFail($id);
-
         return $this->showOne($user);
     }
 
@@ -62,10 +60,8 @@ final class UserController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request, int $id)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        $user = User::findOrFail($id);
-
         if ($request->has('name')) {
             $user->name = $request->name;
         }
@@ -103,10 +99,8 @@ final class UserController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(int $id)
+    public function destroy(User $user)
     {
-        $user = User::findOrFail($id);
-
         $user->delete();
 
         return $this->showOne($user, JsonResponse::HTTP_NO_CONTENT);
