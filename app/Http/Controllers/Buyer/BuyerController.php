@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Buyer;
 
 use App\Http\Controllers\ApiController;
 use App\Models\Buyer;
-use Illuminate\Http\JsonResponse;
 
 final class BuyerController extends ApiController
 {

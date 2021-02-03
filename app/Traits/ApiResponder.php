@@ -29,4 +29,5 @@ trait ApiResponder
     {
         return $this->successResponse(['data' => $model], $code);
     }
+
 }

@@ -79,7 +79,7 @@ class ProductController extends ApiController
      * @param  \App\Models\r  $r
      * @return \Illuminate\Http\Response
      */
-    public function destroy(r $r)
+    public function destroy(Request $request)
     {
         //
     }

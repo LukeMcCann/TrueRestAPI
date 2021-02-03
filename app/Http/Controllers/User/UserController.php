@@ -82,20 +82,14 @@ final class UserController extends ApiController
 
         if ($request->has('admin')) {
             if (false === $user->isVerified()) {
-                return new JsonResponse([
-                    'error' => 'Only verified users can modify the admin field',
-                    'code' => JsonResponse::HTTP_CONFLICT
-                ], JsonResponse::HTTP_CONFLICT);
+                return $this->errorResponse('Only verified users can modify the admin field', JsonResponse::HTTP_CONFLICT);
             }
 
             $user->admin = $request->admin;
         }
 
         if (false === $user->isDirty()) {
-            return new JsonResponse([
-                'error' => 'A new value must be specified to update',
-                'code' => JsonResponse::HTTP_UNPROCESSABLE_ENTITY
-            ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+            return $this->errorMessage('A new value must be specified to update', JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
         }
         
         $user->save();
