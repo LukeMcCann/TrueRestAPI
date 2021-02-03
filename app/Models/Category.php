@@ -5,10 +5,13 @@ namespace App\Models;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 final class Category extends Model
 {
-    use HasFactory;
+    use SoftDeletes, HasFactory;
+    
+    protected $dates = ['deleted_at'];
     
     /**
      * The attributes that are mass assignable.

@@ -17,6 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->integer('quantity')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreignId('buyer_id')->references('id')->on('users');
             $table->foreignId('product_id')->references('id')->on('products');

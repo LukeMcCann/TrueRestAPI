@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Transaction;
 use App\Scopes\BuyerScope;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 final class Buyer extends User
 {

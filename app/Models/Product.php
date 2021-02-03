@@ -9,9 +9,11 @@ use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Product extends Model
+final class Product extends Model
 { 
-    use HasFactory, SoftDeletes;
+    use SoftDeletes, HasFactory;
+
+    protected $dates = ['deleted_at'];
 
     const AVAILABLE_PRODUCT = 'available';
     const UNAVAILABLE_PRODUCT = 'unavailable';

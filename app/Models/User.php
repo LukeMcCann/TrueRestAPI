@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Indirectly implemented through the 
@@ -13,8 +14,10 @@ use Illuminate\Support\Str;
  */
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use SoftDeletes, HasFactory, Notifiable;
 
+    protected $dates = ['deleted_at'];
+    
     const VERIFIED_USER = '1';
     const UNVERIFIED_USER = '0';
 
