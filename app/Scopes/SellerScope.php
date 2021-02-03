@@ -7,18 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * BuyerScope
+ * SellerScope
  * 
  * Laravel Global scope for the buyer class.
- * Allows for constraints to all queries for the Buyer Model.
+ * Allows for constraints to all queries for the Seller Model.
  * 
- * This global scope is used on all Buyer queries, specified
- * within the Buyer Model.
+ * This global scope is used on all Seller queries, specified
+ * within the Seller Model.
  */
-final class BuyerScope implements Scope
+final class SellerScope implements Scope
 {
     /**
-     * Applies the has('transactions') constraint to the
+     * Applies the has('products') constraint to the
      * provided model.
      *
      * @param Builder $builder
@@ -27,6 +27,6 @@ final class BuyerScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->has('transactions');
+        $builder->has('products');
     }
 }
