@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\DB;
 
 final class DatabaseSeeder extends Seeder
 {
-    private const USERS_QUANTITY = 3000;
-    private const CATEGORIES_QUANTITY = 30;
-    private const PRODUCTS_QUANTITY = 1000;
-    private const TRANSACTIONS_QUANTITY = 1000;
+    private const USERS_QUANTITY = 1000;
+    private const CATEGORIES_QUANTITY = 10;
+    private const PRODUCTS_QUANTITY = 200;
+    private const TRANSACTIONS_QUANTITY = 50;
 
     /**
      * Seed the application's database.
@@ -25,6 +25,7 @@ final class DatabaseSeeder extends Seeder
     {
         $this->disableForeignKeyChecks();
         $this->renewDatabase();
+        $this->runProgressBar();
 
         User::factory()->count(self::USERS_QUANTITY)->create();
         Category::factory()->count(self::CATEGORIES_QUANTITY)->create();
@@ -35,6 +36,16 @@ final class DatabaseSeeder extends Seeder
                 $product->categories()->attach($categories);
             });
         Transaction::factory()->count(self::TRANSACTIONS_QUANTITY)->create();
+    }
+
+    private function runProgressBar()
+    {
+        $this->command->getOutput()->progressStart(10);
+        for ($i = 0; $i < 10; $i++) {
+            sleep(1);
+            $this->command->getOutput()->progressAdvance();
+        }
+        $this->command->getOutput()->progressFinish();
     }
 
     /**
