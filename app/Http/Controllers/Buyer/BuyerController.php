@@ -17,9 +17,7 @@ final class BuyerController extends ApiController
     {
         $buyers = Buyer::has('transactions')->get();
 
-        return new JsonResponse([
-            'data' => $buyers
-        ], JsonResponse::HTTP_OK);
+        return $this->showAll($buyers);
     }
 
     /**
@@ -32,8 +30,6 @@ final class BuyerController extends ApiController
     {
         $buyer = Buyer::has('transactions')->findOrFail($id);
 
-        return new JsonResponse([
-            'data' => $buyer
-        ], JsonResponse::HTTP_OK);
+        return $this->showOne($buyer);
     }
 }

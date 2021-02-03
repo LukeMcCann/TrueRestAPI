@@ -19,9 +19,7 @@ final class UserController extends Controller
     {
         $users = User::all();
 
-        return new JsonResponse([
-            'data' => $users
-        ], JsonResponse::HTTP_OK);
+        return $this->showAll($users);
     }
 
     /**
@@ -41,9 +39,7 @@ final class UserController extends Controller
 
         $user = User::create($data);
 
-        return new JsonResponse([
-            'data' => $user
-        ], JsonResponse::HTTP_CREATED);
+        return $this->showOne($user, JsonResponse::HTTP_CREATED);
     }
 
     /**
@@ -56,9 +52,7 @@ final class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        return new JsonResponse([
-            'data' => $user
-        ], JsonResponse::HTTP_OK);
+        return $this->showOne($user);
     }
 
     /**
@@ -106,9 +100,7 @@ final class UserController extends Controller
         
         $user->save();
 
-        return new JsonResponse([
-            'data' => $user
-        ], JsonResponse::HTTP_OK);
+        return $this->showOne($user);
     }
 
     /**
@@ -123,8 +115,6 @@ final class UserController extends Controller
 
         $user->delete();
 
-        new JsonResponse([
-            'data' => $user
-        ], JsonResponse::HTTP_NO_CONTENT);
+        return $this->showOne($user, JsonResponse::HTTP_NO_CONTENT);
     }
 }
