@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Seller;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 use App\Models\Seller;
 use Illuminate\Http\JsonResponse;
 
-final class SellerController extends Controller
+final class SellerController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ final class SellerController extends Controller
         return new JsonResponse([
             'data' => $sellers
         ], JsonResponse::HTTP_OK);
-    }
+    }]
 
     /**
      * Display the specified resource.

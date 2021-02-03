@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Buyer;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 use App\Models\Buyer;
 use Illuminate\Http\JsonResponse;
 
-final class BuyerController extends Controller
+final class BuyerController extends ApiController
 {
     /**
      * Display a listing of the resource.
