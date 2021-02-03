@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Seller;
 
 use App\Http\Controllers\ApiController;
 use App\Models\Seller;
-use Illuminate\Http\JsonResponse;
 
 final class SellerController extends ApiController
 {
