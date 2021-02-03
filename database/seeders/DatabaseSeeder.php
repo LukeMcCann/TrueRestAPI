@@ -9,9 +9,9 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class DatabaseSeeder extends Seeder
+final class DatabaseSeeder extends Seeder
 {
-    private const USERS_QUANTITY = 200;
+    private const USERS_QUANTITY = 3000;
     private const CATEGORIES_QUANTITY = 30;
     private const PRODUCTS_QUANTITY = 1000;
     private const TRANSACTIONS_QUANTITY = 1000;

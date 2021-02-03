@@ -36,5 +36,4 @@ final class SellerController extends Controller
             'data' => $seller
         ], JsonResponse::HTTP_OK);
     }
-
 }
