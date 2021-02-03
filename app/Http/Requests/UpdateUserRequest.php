@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\ApiRequest;
 use App\Models\User;
 
-class UpdateUserRequest extends ApiRequest
+final class UpdateUserRequest extends ApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.
