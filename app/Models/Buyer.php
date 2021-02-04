@@ -28,8 +28,8 @@ final class Buyer extends User
      * 
      * @var relationship
      */
-    public function transactions() 
+    public function transactions()
     {
-        return $this->hasMany(Transaction::class);
+    	return $this->hasMany(Transaction::class);
     }
 }
