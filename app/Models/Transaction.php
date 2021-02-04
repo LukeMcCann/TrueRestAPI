@@ -34,13 +34,13 @@ final class Transaction extends Model
     }
 
     /**
-     * Define the seller relationship,
+     * Define the product relationship.
      * 
      * @var relationship
      */
-    public function seller() 
+    public function product() 
     {
-        return $this->belongsTo(Seller::class);
+        return $this->belongsTo(Product::class);
     }
 
 }

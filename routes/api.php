@@ -7,6 +7,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Transaction\TransactionController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Category\CategoryController;
+use App\Http\Controllers\Transaction\TransactionCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,7 @@ Route::resource('products', ProductController::class)->only(['index', 'show']);
 
 // Transactions
 Route::resource('transactions', TransactionController::class)->only(['index', 'show']);
+Route::resource('transactions.categories', TransactionCategoryController::class)->only(['index']);
 
 // Users
 Route::resource('users', UserController::class)->except(['create', 'edit']);

@@ -6,15 +6,10 @@ use App\Http\Controllers\ApiController;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
-use App\Traits\ApiResponder;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
 
 class CategoryController extends ApiController
 {
-    use ApiResponder;
-
     /**
      * Display a listing of the resource.
      *
