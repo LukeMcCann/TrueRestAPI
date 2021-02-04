@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\Buyer\BuyerCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Buyer\BuyerController;
 use App\Http\Controllers\Buyer\BuyerTransactionController;
-use App\Http\Controllers\BuyerSellerController;
+use App\Http\Controllers\Buyer\BuyerSellerController;
 use App\Http\Controllers\Seller\SellerController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Transaction\TransactionController;
@@ -29,6 +30,8 @@ Route::resource('buyers', BuyerController::class)->only(['index', 'show']);
 Route::resource('buyers.transactions', BuyerTransactionController::class)->only(['index']);
 Route::resource('buyers.products', BuyerProductController::class)->only(['index']);
 Route::resource('buyers.sellers', BuyerSellerController::class)->only(['index']);
+Route::resource('buyers.categories', BuyerCategoryController::class)->only(['index']);
+
 // Sellers
 Route::resource('sellers', SellerController::class)->only(['index', 'show']);
 
