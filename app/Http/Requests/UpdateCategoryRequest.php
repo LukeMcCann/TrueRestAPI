@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\ApiRequest;
 
-class StoreCategoryRequest extends ApiRequest
+class UpdateCategoryRequest extends ApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class StoreCategoryRequest extends ApiRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'description' => 'required',
+            //
         ];
     }
 }

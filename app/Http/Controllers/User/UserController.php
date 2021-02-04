@@ -84,7 +84,7 @@ final class UserController extends ApiController
             $user->admin = $request->admin;
         }
 
-        if (false === $user->isDirty()) {
+        if ($user->isClean()) {
             return $this->errorMessage('A new value must be specified to update', JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
         }
         
