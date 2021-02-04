@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\ApiController;
-use App\Models\r;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends ApiController
 {
@@ -15,28 +15,9 @@ class ProductController extends ApiController
      */
     public function index()
     {
-        //
-    }
+        $products = Product::all();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return $this->showAll($products);
     }
 
     /**
@@ -45,42 +26,8 @@ class ProductController extends ApiController
      * @param  \App\Models\r  $r
      * @return \Illuminate\Http\Response
      */
-    public function show(r $r)
+    public function show(Product $product)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\r  $r
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(r $r)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\r  $r
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, r $r)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\r  $r
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Request $request)
-    {
-        //
+        return $this->showOne($product);
     }
 }
