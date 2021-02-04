@@ -10,6 +10,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Transaction\TransactionController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Category\CategoryController;
+use App\Http\Controllers\Category\CategoryProductController;
 use App\Http\Controllers\Transaction\BuyerProductController;
 use App\Http\Controllers\Transaction\TransactionCategoryController;
 use App\Http\Controllers\Transaction\TransactionSellerController;
@@ -37,6 +38,7 @@ Route::resource('sellers', SellerController::class)->only(['index', 'show']);
 
 // Categories
 Route::resource('categories', CategoryController::class)->except(['create', 'edit']);
+Route::resource('categories.products', CategoryProductController::class)->only(['index']);
 
 // Products
 Route::resource('products', ProductController::class)->only(['index', 'show']);
