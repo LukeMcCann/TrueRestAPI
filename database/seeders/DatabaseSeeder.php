@@ -25,24 +25,19 @@ final class DatabaseSeeder extends Seeder
     {
         $this->disableForeignKeyChecks();
         $this->renewDatabase();
-        $this->runProgressBar();
 
-        User::factory()->count(self::USERS_QUANTITY)->create();
-        Category::factory()->count(self::CATEGORIES_QUANTITY)->create();
-        Product::factory()->count(self::PRODUCTS_QUANTITY)->create()->each(
-            function (Product $product) {
-                $categories = Category::all()->random(mt_rand(1, 5))->pluck('id');
-
-                $product->categories()->attach($categories);
-            });
-        Transaction::factory()->count(self::TRANSACTIONS_QUANTITY)->create();
-    }
-
-    private function runProgressBar()
-    {
         $this->command->getOutput()->progressStart(10);
         for ($i = 0; $i < 10; $i++) {
             sleep(1);
+            User::factory()->count(self::USERS_QUANTITY)->create();
+            Category::factory()->count(self::CATEGORIES_QUANTITY)->create();
+            Product::factory()->count(self::PRODUCTS_QUANTITY)->create()->each(
+                function (Product $product) {
+                    $categories = Category::all()->random(mt_rand(1, 5))->pluck('id');
+    
+                    $product->categories()->attach($categories);
+                });
+            Transaction::factory()->count(self::TRANSACTIONS_QUANTITY)->create();
             $this->command->getOutput()->progressAdvance();
         }
         $this->command->getOutput()->progressFinish();
