@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Category;
 
 use App\Http\Controllers\ApiController;
+use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
 use App\Traits\ApiResponder;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class CategoryController extends ApiController
 {
@@ -29,9 +32,13 @@ class CategoryController extends ApiController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        //
+        $body = $request->all();
+
+        $category = Category::create($body);
+
+        return $this->showOne($category, JsonResponse::HTTP_CREATED);
     }
 
     /**
