@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 final class Transaction extends Model
 {
     use SoftDeletes, HasFactory;
+
+    protected $dates = ['deleted_at'];
     
     /**
      * The attributes that are mass assignable.
