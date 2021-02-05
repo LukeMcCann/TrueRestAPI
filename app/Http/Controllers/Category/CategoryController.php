@@ -57,7 +57,10 @@ class CategoryController extends ApiController
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $category->fill($request->all());
+        $category->fill($request->only([
+            'name',
+            'description',
+        ]));
 
         if ($category->isClean()) {
             return $this->errorMessage('A new value must be specified to update', JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
