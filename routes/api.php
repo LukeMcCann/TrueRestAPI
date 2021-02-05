@@ -16,6 +16,7 @@ use App\Http\Controllers\Category\CategoryTransactionController;
 use App\Http\Controllers\Category\CategoryBuyerController;
 use App\Http\Controllers\Seller\SellerBuyerController;
 use App\Http\Controllers\Seller\SellerCategoryController;
+use App\Http\Controllers\Seller\SellerProductController;
 use App\Http\Controllers\Seller\SellerTransactionController;
 use App\Http\Controllers\Transaction\BuyerProductController;
 use App\Http\Controllers\Transaction\TransactionCategoryController;
@@ -44,6 +45,7 @@ Route::resource('sellers', SellerController::class)->only(['index', 'show']);
 Route::resource('sellers.transactions', SellerTransactionController::class)->only(['index']);
 Route::resource('sellers.categories', SellerCategoryController::class)->only(['index']);
 Route::resource('sellers.buyers', SellerBuyerController::class)->only(['index']);
+Route::resource('sellers.products', SellerProductController::class)->only(['index']);
 
 // Categories
 Route::resource('categories', CategoryController::class)->except(['create', 'edit']);
