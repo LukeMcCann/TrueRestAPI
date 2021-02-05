@@ -61,7 +61,7 @@ Route::resource('categories.buyers', CategoryBuyerController::class)->only(['ind
 Route::resource('products', ProductController::class)->only(['index', 'show']);
 Route::resource('products.transactions', ProductTransactionController::class)->only(['index']);
 Route::resource('products.buyers', ProductBuyerController::class)->only(['index']);
-Route::resource('products.categories', ProductCategoryController::class)->only(['index']);
+Route::resource('products.categories', ProductCategoryController::class)->only(['index', 'update', 'destroy']);
 
 // Transactions
 Route::resource('transactions', TransactionController::class)->only(['index', 'show']);
