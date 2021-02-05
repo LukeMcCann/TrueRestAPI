@@ -24,6 +24,17 @@ final class Category extends Model
     ];
 
     /**
+     * The attributes that are to be hidden from the response.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'pivot'
+    ];
+
+
+
+    /**
      * Define the products relationship 
      * 
      * many -> many

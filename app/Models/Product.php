@@ -33,6 +33,15 @@ final class Product extends Model
     ];
 
     /**
+     * The attributes that are to be hidden from the response.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'pivot'
+    ];
+
+    /**
      * Check a products availability
      * 
      * @var boolean
