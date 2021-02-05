@@ -9,9 +9,8 @@ use Illuminate\Http\JsonResponse;
 use App\Models\User;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\DB;
-use PHPUnit\Util\Json;
 
-class ProductBuyerTransactionController extends ApiController
+final class ProductBuyerTransactionController extends ApiController
 {
 
     /**
