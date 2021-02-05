@@ -8,7 +8,7 @@ use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\JsonResponse;
 
-class CategoryController extends ApiController
+final class CategoryController extends ApiController
 {
     /**
      * Display a listing of the resource.

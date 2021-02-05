@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Transaction;
 use App\Http\Controllers\ApiController;
 use App\Models\Buyer;
 
-class BuyerProductController extends ApiController
+final class BuyerProductController extends ApiController
 {
     /**
      * Display a listing of the resource.

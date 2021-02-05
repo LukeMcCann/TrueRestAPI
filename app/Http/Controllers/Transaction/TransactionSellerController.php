@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Transaction;
 use App\Models\Transaction;
 use App\Http\Controllers\ApiController;
 
-class TransactionSellerController extends ApiController
+final class TransactionSellerController extends ApiController
 {
     /**
      * Display a listing of the resource.

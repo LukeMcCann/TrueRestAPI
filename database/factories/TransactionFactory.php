@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Seller;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TransactionFactory extends Factory
+final class TransactionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.

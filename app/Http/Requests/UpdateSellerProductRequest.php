@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\ApiRequest;
 use App\Models\Product;
 
-class UpdateSellerProductRequest extends ApiRequest
+final class UpdateSellerProductRequest extends ApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.

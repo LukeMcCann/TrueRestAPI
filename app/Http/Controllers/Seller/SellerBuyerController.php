@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Seller;
 use App\Http\Controllers\ApiController;
 use App\Models\Seller;
 
-class SellerBuyerController extends ApiController
+final class SellerBuyerController extends ApiController
 {
     /**
      * Display a listing of the resource.
