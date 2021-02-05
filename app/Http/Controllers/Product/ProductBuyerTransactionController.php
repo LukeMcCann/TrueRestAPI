@@ -28,21 +28,21 @@ final class ProductBuyerTransactionController extends ApiController
             );
         }
 
-        if (!$buyer->isVerified()) {
+        if (false === $buyer->isVerified()) {
             return $this->errorResponse(
                 'The buyer must be a verified user.',
                 JsonResponse::HTTP_UNPROCESSABLE_ENTITY
             );
         }
 
-        if (!$product->seller->isVerified()) {
+        if (false === $product->seller->isVerified()) {
             return $this->errorResponse(
                 'The seller must be a verified user.',
                 JsonResponse::HTTP_UNPROCESSABLE_ENTITY
             );   
         }
 
-        if (!$product->isAvailable()) {
+        if (false === $product->isAvailable()) {
             return $this->errorResponse(
                 'The product is not available.',
                 JsonResponse::HTTP_UNPROCESSABLE_ENTITY
@@ -66,7 +66,10 @@ final class ProductBuyerTransactionController extends ApiController
                     'buyer_id' => $buyer->id, 
                     'product_id' => $product->id,
                 ]);
-                return $this->showOne($transaction, JsonResponse::HTTP_CREATED);
+                return $this->showOne(
+                    $transaction, 
+                    JsonResponse::HTTP_CREATED
+                );
             }
         );
     }
