@@ -102,4 +102,22 @@ final class SellerProductController extends ApiController
             );
         }
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Seller $seller, Product $product) 
+    {
+        $this->checkSeller($seller, $product);
+
+        $product->delete();
+
+        return $this->showOne(
+            $product,
+            JsonResponse::HTTP_NO_CONTENT
+        );
+    }
 }
